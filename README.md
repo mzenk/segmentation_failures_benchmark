@@ -2,8 +2,7 @@ Copyright German Cancer Research Center (DKFZ) and contributors. Please make sur
 
 # Failure Detection Methods in Medical Image Segmentation
 
-This repository is the official implementation of the paper [Comparative Benchmarking of Failure Detection Methods in Medical Image Segmentation: Unveiling the Role of Confidence Aggregation](https://arxiv.org/pdf/2406.03323).
-<!-- todo update with journal url once accepted -->
+This repository is the official implementation of the paper [Comparative Benchmarking of Failure Detection Methods in Medical Image Segmentation: Unveiling the Role of Confidence Aggregation](https://doi.org/10.1016/j.media.2024.103392).
 
 <div align="center">
 <img src=assets/fd_figure1.svg width="600px">
