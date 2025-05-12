@@ -99,7 +99,8 @@ def main():
     parser.add_argument(
         "-o",
         "--output_dir",
-        help="Path where transformed data will be saved (in subdirectories). If not specified, will be saved in the same folder as the original data.",
+        help="Path where transformed data will be saved (in subdirectories). "
+        "If not specified, will be saved in the same folder as the original data.",
         type=str,
         required=False,
     )

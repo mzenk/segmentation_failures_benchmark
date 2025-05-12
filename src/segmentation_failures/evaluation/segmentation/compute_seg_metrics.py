@@ -32,8 +32,9 @@ def compute_metrics_for_file(
 ) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]]:
     """Compute metrics for a single label and prediction file pair.
 
-    The reason why this is not a method of the ExperimentDataWriter class is that I had issues with multiprocessing (pickling error).
-    Idk exactly why but suspect that there was some reference in the callback that was not picklable.
+    The reason why this is not a method of the ExperimentDataWriter class is that I had issues with
+    multiprocessing (pickling error). Idk exactly why but suspect that there was some reference in
+    the callback that was not picklable.
     """
     num_classes = len(all_labels)
     if isinstance(all_labels, dict):
@@ -67,7 +68,7 @@ def compute_metrics_for_file(
         if not np.all(pred.astype(int) == pred):
             raise TypeError("Predictions must be integer!")
         if pred.shape != target.shape:
-            # NOTE this is a breaking change. If the files in the label dir and prediction dir have different spacing, this will fail
+            # NOTE this is a breaking change. Fails if the files in the label dir and prediction dir have different spacing
             raise ValueError(
                 f"Shape mismatch between prediction and label for {label_file.name}: {pred.shape} vs {target.shape}"
             )
@@ -196,7 +197,7 @@ if __name__ == "__main__":
     # testing
     metric_list = ["dice", "surface_dice"]
     # label_dir = "/home/m167k/Datasets/segmentation_failures/nnunet_convention_new/Dataset500_simple_fets_corruptions/labelsTr"
-    # dataset_json = "/home/m167k/Datasets/segmentation_failures/nnunet_convention_new/Dataset500_simple_fets_corruptions/dataset.json"
+    # dataset_json = "/home/m167k/Datasets/segmentation_failures/nnunet_convention_new/Dataset500_simple_fets_corruptions/dataset.json"  # noqa B950
     label_dir = Path(
         "/home/m167k/Datasets/segmentation_failures/nnunet_convention_new/Dataset503_BraTS19/labelsTs"
     )

@@ -57,15 +57,18 @@ class NNunetDataModule(pl.LightningDataModule):
             fold: Fold id.
             device: Device to use. Can be "cpu", "cuda" or "gpu".
             batch_size: Batch size.
-            patch_size: Patch size (shape ZYX). This is included so that I have access to it from the hydra config. It is checked against the nnunet configuration.
+            patch_size: Patch size (shape ZYX). This is included so that I have access to it from the hydra config.
+                It is checked against the nnunet configuration.
             nnunet_config: nnunet configuration (e.g. "3d_fullres").
             nnunet_plans_id: nnunet plans id. As in nnunet, it's the name of the folder in the preprocessed data directory.
             test_data_root: Root directory for the test data. Needs to be set for testing.
-            deep_supervision: Whether to use deep supervision. The dataloader will return a list of target segmentations on different scales if True.
+            deep_supervision: Whether to use deep supervision. The dataloader will return a list of target segmentations on
+                different scales if True.
             num_workers: Number of workers for the dataloader/augmenter. If None, let nnunet decide.
                 The name was chosen for compatibility with other datamodules, but it's actually n_proc_DA in the nnunet language.
             domain_mapping: Domain mapping id. A corresponding file should be located in the test_data_root directory.
-            preproc_only: If True, the dataloader will return the preprocessed data without patching/augmentation. Defaults to False.
+            preproc_only: If True, the dataloader will return the preprocessed data without patching/augmentation.
+                Defaults to False.
         """
         super().__init__()
         self.save_hyperparameters()

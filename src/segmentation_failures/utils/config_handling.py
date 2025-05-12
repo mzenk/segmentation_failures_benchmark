@@ -29,7 +29,7 @@ def flatten(cfg: Any, resolve: bool = False) -> list[tuple[str, Any]]:
             else:
                 ret.append((str(idx), v))
     else:
-        assert False
+        raise TypeError("Expected config to be of type ListConfig or DictConfig (omegaconf)")
 
     return ret
 

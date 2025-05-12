@@ -58,7 +58,8 @@ class PredictionWriter(Callback):
         case_id_suffix="",
         include_ids=None,
     ):
-        # NOTE nnunet never exports one-hot masks (it only knows region-based training, which is a special case of overlapping labels)
+        # NOTE nnunet never exports one-hot masks
+        # (it only knows region-based training, which is a special case of overlapping labels)
         # TODO nnunet has some precautions against too many exports at once. Maybe add later
         if include_ids is None:
             include_ids = batch["keys"]
@@ -149,7 +150,8 @@ class MultiPredictionWriter(PredictionWriter):
         case_id_suffix="",
         include_ids=None,
     ):
-        # NOTE nnunet never exports one-hot masks (it only knows region-based training, which is a special case of overlapping labels)
+        # NOTE nnunet never exports one-hot masks
+        # (it only knows region-based training, which is a special case of overlapping labels)
         # TODO nnunet has some precautions against too many exports at once. Maybe add later
         if include_ids is None:
             include_ids = batch["keys"]

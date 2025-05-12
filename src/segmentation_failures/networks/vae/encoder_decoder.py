@@ -223,7 +223,7 @@ class Encoder(nn.Module):
             img_size_new = img_size_new // curr_stride
 
             if np.min(img_size_new) < 2 and z_dim is not None:
-                raise ("h_size to long, one image dimension has already perished")
+                raise ValueError("h_size to long, one image dimension has already perished")
 
         # --v End block
         if not to_1x1:
@@ -343,7 +343,7 @@ class EncoderLiu(nn.Module):
             img_size_new = img_size_new // curr_stride
 
             if np.min(img_size_new) < 2 and z_dim is not None:
-                raise ("h_size to long, one image dimension has already perished")
+                raise ValueError("h_size to long, one image dimension has already perished")
 
         # --v End block
         if not to_1x1:

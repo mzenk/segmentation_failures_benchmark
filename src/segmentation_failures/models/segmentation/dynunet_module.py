@@ -209,7 +209,8 @@ class DynUnetModule(pl.LightningModule):
         if isinstance(targets, list):
             if not isinstance(preds, list) or len(targets) != len(preds):
                 raise ValueError(
-                    f"Deep supervision requires list of predictions and targets to have same shape. Got {type(preds)} (len {len(preds)}) and {type(targets)} (len {len(targets)})"
+                    f"Deep supervision requires list of predictions and targets to have same shape. "
+                    f"Got {type(preds)} (len {len(preds)}) and {type(targets)} (len {len(targets)})"
                 )
             # deep supervision
             loss = self.loss_deepsup(preds, targets)

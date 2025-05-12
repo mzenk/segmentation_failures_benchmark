@@ -159,7 +159,6 @@ def main():
     dataset_id = ds_name_mapping[dataset]
     if args.code_dir is None:
         if args.cluster:
-            # raise ValueError("Need to specify --code_dir when running on cluster (this is the path to the src code ON THE CLUSTER)")
             code_dir = "$HOME/rsynced_code/segfail_project_new/src/segmentation_failures"
         else:
             code_dir = Path(__file__).resolve().parents[1]

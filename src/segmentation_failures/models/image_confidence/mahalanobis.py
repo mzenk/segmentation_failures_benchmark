@@ -32,7 +32,8 @@ class SingleGaussianOODDetector(LightningModule):
 
         Args:
             model (torch.nn.Module, optional): Segmentation model. Defaults to None.
-            feature_path (str, optional): Path to the module in the segmentation model whose features are used for fitting the Gaussian.
+            feature_path (str, optional): Path to the module in the segmentation model whose features are used
+                for fitting the Gaussian.
             sw_patch_size: Can be None if no sliding window should be used (e.g. 2D)
             sw_batch_size (int): number of patches per batch for sliding window inference
             sw_overlap (float): fractional overlap between sw patches.

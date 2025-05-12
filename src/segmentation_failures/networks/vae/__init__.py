@@ -1,1 +1,1 @@
-from .vae import VAE, VAE3d
+from .vae import VAE, VAE3d  # noqa: F401

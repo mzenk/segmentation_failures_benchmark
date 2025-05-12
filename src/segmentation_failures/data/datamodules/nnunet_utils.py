@@ -131,7 +131,7 @@ class MultiThreadedAugmenterWithLength(MultiThreadedAugmenter):
             logger.debug("MultiThreadedGenerator: shutting down workers...")
             [i.kill() for i in self._processes]
 
-            for i, p in enumerate(self._processes):
+            for i, _ in enumerate(self._processes):
                 self._queues[i].close()
                 self._queues[i].join_thread()
 

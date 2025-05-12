@@ -115,7 +115,8 @@ def get_num_test_cases(dataset_id, root_dir=None):
 
 def order_expts(mapped_expt_names, separate_pxl_and_img_csfs=True):
     # use the order implied by the mapper dicts.
-    # First pixel confidence scores (order among them by confid name), then image confidence scores (order among them alphabetically)
+    # First pixel confidence scores (order among them by confid name),
+    # then image confidence scores (order among them alphabetically)
     def get_order_position(expt_name):
         pixel_confid, image_confid = expt_name.split(" + ")
         pixel_methods = list(pixel_csf_mapper.values())
@@ -1609,7 +1610,7 @@ def make_table_seg_model_comparison(fd_results, expt_configs, output_file: Path,
         ["Brain tumor (2D)", "Brain tumor", "Heart", "Kidney tumor", "Covid", "Prostate"],
     ]
     idx = pd.IndexSlice
-    mean_slice_ = idx[:, idx[:, "mean"]]
+    # mean_slice_ = idx[:, idx[:, "mean"]]
     std_slice_ = idx[:, idx[:, "std"]]
     plot_data *= 100
     s = plot_data.style.format(precision=1, na_rep="n/a")

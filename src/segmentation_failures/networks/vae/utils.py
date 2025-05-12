@@ -65,7 +65,7 @@ class ConvDownsample(nn.Module):
 
 
 class ConvUpsample(nn.Module):
-    # adapted from https://medium.com/miccai-educational-initiative/tutorial-abdominal-ct-image-synthesis-with-variational-autoencoders-using-pytorch-933c29bb1c90
+    # adapted from https://medium.com/miccai-educational-initiative/tutorial-abdominal-ct-image-synthesis-with-variational-autoencoders-using-pytorch-933c29bb1c90  # noqa: B950
     # supposedly reduces checkerboard artifacts
     def __init__(
         self,

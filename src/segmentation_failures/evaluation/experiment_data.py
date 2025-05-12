@@ -19,7 +19,7 @@ class ExperimentData:
     case_ids: List[str]  # Length n_samples. For reidentifying individual cases
     domain_names: List[str]  # Length n_samples; domain of each sample (for multi-domain datasets)
     confid_scores: npt.NDArray[Any]
-    # Shape (n_samples, n_scores). Note that n_scores can vary between experiments; usually it's 1, idk if I actually ever need more.
+    # Shape (n_samples, n_scores). Note that n_scores can vary between experiments; usually it's 1.
     confid_scores_names: List[str]  # Length n_scores
     segmentation_metrics: npt.NDArray[Any]  # Shape (n_samples, n_metrics)
     segmentation_metrics_multi: npt.NDArray[Any]

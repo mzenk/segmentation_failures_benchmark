@@ -163,7 +163,8 @@ def process_case_crop_and_pad(
         np.ceil(scaling_factor * cropped_image.shape[2]),
         np.ceil(scaling_factor * cropped_image.shape[3]),
     )
-    # TODO generalize this (I use target_size = 80 so far): Determine the maximum brain extent on all cropped slices (or maybe complete volumes)
+    # TODO generalize this (I use target_size = 80 so far):
+    # Determine the maximum brain extent on all cropped slices (or maybe complete volumes)
     # and then scale the image by target_size / MAX_EXTENT. Afterwards it should be possible to pad all sides to target size.
     if output_shape[0] > 64 or output_shape[1] > 64:
         raise ValueError("Can only pad with positive values. Increase target size, please!")

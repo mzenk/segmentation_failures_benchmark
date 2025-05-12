@@ -1,7 +1,8 @@
 """
 I want to have two callbacks here:
 1. Save predictions for the testing/prediction loop
-2. Save confidences and segmentation metrics for the testing loop [may separate confidences later but since it's just a scalar for now I prefer this]
+2. Save confidences and segmentation metrics for the testing loop
+    [may separate confidences later but since it's just a scalar for now I prefer this]
 """
 
 from pathlib import Path

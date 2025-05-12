@@ -249,7 +249,8 @@ class VAEdataModule(pl.LightningDataModule):
             )
         else:
             # it gets a bit tricky/hacky here, unfortunately.
-            # Since the nnunet preprocessor can handle only one segmentation, I drop the GT and pass predictions under the 'target' key
+            # Since the nnunet preprocessor can handle only one segmentation,
+            # I drop the GT and pass predictions under the 'target' key
             # (Alternatively, I could modify the preprocessor to accept multiple segs.
             #  While this not difficult, I don't want to mess with it for now.)
             # The VAE model should not get the GT at test-time anyways, so this should be fine.

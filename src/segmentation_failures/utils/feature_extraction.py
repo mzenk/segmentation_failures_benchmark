@@ -1,4 +1,4 @@
-# credit: https://github.com/MECLabTUDA/Lifelong-nnUNet/blob/dev-ood_detection/nnunet_ext/calibration/mahalanobis/ActivationSeeker.py
+# credit: https://github.com/MECLabTUDA/Lifelong-nnUNet/blob/dev-ood_detection/nnunet_ext/calibration/mahalanobis/ActivationSeeker.py # noqa: B950
 
 import torch.nn as nn
 

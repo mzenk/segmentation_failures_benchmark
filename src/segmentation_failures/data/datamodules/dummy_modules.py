@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, Dataset, default_collate
+from torch.utils.data import DataLoader, Dataset
 
 from segmentation_failures.data.datamodules.nnunet_module import NNunetDataModule
 

@@ -1,2 +1,2 @@
-from .dynunet_module import DynUnetModule
-from .monai_segmenter import UNet_segmenter
+from .dynunet_module import DynUnetModule  # noqa: F401
+from .monai_segmenter import UNet_segmenter  # noqa: F401

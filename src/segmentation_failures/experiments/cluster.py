@@ -45,7 +45,7 @@ HYDRA_FULL_ERROR=1 python $HOME/rsynced_code/segfail_project_new/src/segmentatio
 # Run before executing anything on the cluster
 # later, it may be better to switch to a git repository and also log the commit hash
 RSYNC_CODE_COMMAND = r"""
-rsync -rtvu --delete --stats -f'- __pycache__/' -f'+ src/***' -f'+ pyproject.toml'  -f'- *' {source_dir}/ m167k@odcf-worker02.dkfz.de:/home/m167k/rsynced_code/segfail_project_new
+rsync -rtvu --delete --stats -f'- __pycache__/' -f'+ src/***' -f'+ pyproject.toml'  -f'- *' {source_dir}/ m167k@odcf-worker02.dkfz.de:/home/m167k/rsynced_code/segfail_project_new  # noqa B950
 """
 
 

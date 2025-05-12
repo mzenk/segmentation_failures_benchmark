@@ -155,7 +155,8 @@ class EnhancedDynUNet(DynUNet):
         self.conv_block = UnetStackedResBlock if res_block > 0 else UnetStackedBlock
         if num_dropout_units > 0 and num_dropout_units % 2 == 0:
             logger.warning(
-                f"An even number of dropout ({num_dropout_units}) units was specified. This class only supports odd numbers. Using {num_dropout_units - 1} instead."
+                f"An even number of dropout ({num_dropout_units}) units was specified. "
+                f"This class only supports odd numbers. Using {num_dropout_units - 1} instead."
             )
             num_dropout_units -= 1
         self.num_dropout_units = num_dropout_units
