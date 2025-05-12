@@ -1,0 +1,23 @@
+*.pyc
+.DS_Store
+.idea
+.vscode
+build/
+
+# pycache etc
+**/__pycache__/
+.pytest_cache
+
+# experiment data
+output/
+figures
+logs
+
+# others
+_build/
+_templates/
+autodoc/
+.ipynb_checkpoints/
+*.egg-info/
+lightning_logs/
+.env
