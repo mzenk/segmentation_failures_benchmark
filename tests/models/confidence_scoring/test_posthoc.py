@@ -1,14 +1,9 @@
-import sys
-import time
-
 import numpy as np
 import pytest
 import torch
-from loguru import logger
 
 from segmentation_failures.models.pixel_confidence.posthoc import (
     compute_confidence_map,
-    compute_confidence_map_inefficient,
     compute_mean_prediction,
 )
 from segmentation_failures.models.pixel_confidence.scores import (
@@ -152,52 +147,3 @@ def test_compute_mean_prediction_and_confidence_mask(mc_samples, overlapping_cla
     # check the shapes
     assert mean_logits.shape == (num_batch, num_classes, *spatial_dim)
     assert confid.shape == (num_batch, *spatial_dim)
-
-
-def test_compute_confidence_map_large_input():
-    spatial_dim = [256, 256, 256]
-    # worst case training case KiTS23: 1059, 512, 512 -> this goes OOM on my workstation
-    num_classes = 3
-    num_batch = 1
-    mc_samples = 10
-    example_logits = torch.randn([mc_samples, num_batch, num_classes, *spatial_dim])
-    # print memory consumption of example_logits
-    print(example_logits.dtype)
-    print(
-        f"Memory consumption of example_logits: {example_logits.element_size() * example_logits.nelement() / 1024 ** 3} GB"
-    )
-    example_logits.squeeze(dim=0)
-
-    start_time = time.time()
-    confid = compute_confidence_map(
-        example_logits,
-        csf_fn=MaximumSoftmaxScore(),
-        # csf_fn=PairwiseDiceScore(),
-        overlapping_classes=True,
-        mc_dim=0,
-    )
-    end_time = time.time()
-    print(f"Time taken: {end_time - start_time} seconds")
-
-    start_time = time.time()
-    confid_bad = compute_confidence_map_inefficient(
-        example_logits,
-        csf_fn=MaximumSoftmaxScore(),
-        overlapping_classes=True,
-        mc_dim=0,
-    )
-    end_time = time.time()
-    print(f"Time taken for inefficient version: {end_time - start_time} seconds")
-    assert torch.allclose(confid, confid_bad)
-
-
-# # I used the fil-profiler later; gives me more what I want
-# # from torch.profiler import profile, ProfilerActivity
-
-# if __name__ == "__main__":
-#     logger.remove()  # Remove default 'stderr' handler
-#     logger.add(sys.stderr, level="DEBUG")
-#     # with profile(activities=[ProfilerActivity.CPU], profile_memory=True, record_shapes=True) as prof:
-#     #     test_compute_mean_prediction_and_confidence_mask_large_input()
-#     test_compute_confidence_map_large_input()
-#     # print(prof.key_averages().table(sort_by="self_cpu_memory_usage", row_limit=15))

@@ -18,7 +18,6 @@ from segmentation_failures.models.confidence_aggregation.base import (
     ForegroundAggregator,
     ForegroundSizeAggregator,
 )
-from segmentation_failures.utils.data import load_dataset_json
 
 
 def get_regression_model(model_name):
@@ -48,8 +47,6 @@ class AbstractHeuristicAggregationModule(LightningModule):
         self._validation_buffer = []
         self.confid_name = confid_name
         self.target_metrics = target_metrics  # just for output naming
-        dataset_json = load_dataset_json(dataset_id)
-        self.regions_or_labels = [v for _, v in dataset_json["labels"].items()]
         # determine which class-wise metrics need to be averaged to get mean_metric
         self.metrics_to_average = defaultdict(list)
         for idx, name in enumerate(target_metrics):
